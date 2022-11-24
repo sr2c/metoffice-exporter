@@ -1,0 +1,37 @@
+name: metoffice_exporter
+license: "BSD2"
+gitlab_repo: sr2c/metoffice_exporter
+description: |-
+  A Prometheus exporter for Met Office weather forecasts and weather warnings.
+  
+  This is still active development and so breaking changes may happen and be unannounced. No release has yet been made.
+usage: |-
+  To export weather warnings for the Grampian region:
+  
+  ```shell
+  python exporter.py gr
+  ```
+examples: |-
+  The following shows the alerts for the Grampian region with only one upcoming yellow alert issued.
+  
+  ```
+  # HELP red_alert Number of upcoming red alerts
+  # TYPE red_alert gauge
+  red_alert{region="gr"} 0.0
+  # HELP amber_alert Number of upcoming amber alerts
+  # TYPE amber_alert gauge
+  amber_alert{region="gr"} 0.0
+  # HELP yellow_alert Number of upcoming yellow alerts
+  # TYPE yellow_alert gauge
+  yellow_alert{region="gr"} 1.0
+  # HELP unknown_alert Number of upcoming unknown alerts
+  # TYPE unknown_alert gauge
+  unknown_alert{region="gr"} 0.0
+  ```
+contributors:
+- name: irl
+  gitlab: irlxyz
+  gitlab_id: 5895869
+- name: borys1987
+  gitlab: borys1987
+  avatar: https://secure.gravatar.com/avatar/8de39fe87096ee230db01411250dd64b?s=192&d=identicon
