@@ -1,7 +1,11 @@
-image: python:3.9-bullseye
+image: python:3.10-bullseye
+
+stages:
+  - test
 
 test:bandit:
+  stage: test
   script:
-    - pip install -r requirements.txt --quiet
-    - pip install bandit --quiet
-    - bandit -c bandit.yml -r .
+    - make init
+    - make git/submodules-update  ## Requires init before target available
+    - make python/bandit          ## Requires git/submodules-update before target available
